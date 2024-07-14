@@ -1,0 +1,997 @@
+--------------------------------------------------------------------------Git--------------------------------------------------------------------
+
+Microsoft Windows [Version 10.0.22631.3737]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\Deepak Gangwar>cd Downloads
+
+C:\Users\Deepak Gangwar\Downloads>ssh -i key-pair.pem ubuntu@54.252.152.171
+The authenticity of host '54.252.152.171 (54.252.152.171)' can't be established.
+ED25519 key fingerprint is SHA256:6c6PgforU/FVc/nIzVC2pxTW/gRN2+qCghcX/WMpkD4.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '54.252.152.171' (ED25519) to the list of known hosts.
+Welcome to Ubuntu 24.04 LTS (GNU/Linux 6.8.0-1009-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Thu Jul 11 15:07:57 UTC 2024
+
+  System load:  0.18              Processes:             105
+  Usage of /:   22.7% of 6.71GB   Users logged in:       0
+  Memory usage: 20%               IPv4 address for enX0: 10.0.0.31
+  Swap usage:   0%
+
+Expanded Security Maintenance for Applications is not enabled.
+
+0 updates can be applied immediately.
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+
+The list of available updates is more than a week old.
+To check for new updates run: sudo apt update
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+ubuntu@ip-10-0-0-31:~$ hostnamectl
+ Static hostname: ip-10-0-0-31
+       Icon name: computer-vm
+         Chassis: vm 🖴
+      Machine ID: ec2539900619386b419b9e8a614e15d5
+         Boot ID: 4e24404510244e94a8e29e149c54fbf3
+  Virtualization: xen
+Operating System: Ubuntu 24.04 LTS
+          Kernel: Linux 6.8.0-1009-aws
+    Architecture: x86-64
+ Hardware Vendor: Xen
+  Hardware Model: HVM domU
+Firmware Version: 4.11.amazon
+   Firmware Date: Thu 2006-08-24
+    Firmware Age: 17y 10month 2w 4d
+ubuntu@ip-10-0-0-31:~$ add-apt-repository ppa:git-core/ppa
+Error: must run as root
+ubuntu@ip-10-0-0-31:~$ sudo add-apt-repository ppa:git-core/ppa
+PPA publishes dbgsym, you may need to include 'main/debug' component
+Repository: 'Types: deb
+URIs: https://ppa.launchpadcontent.net/git-core/ppa/ubuntu/
+Suites: noble
+Components: main
+'
+Description:
+The most current stable version of Git for Ubuntu.
+
+For release candidates, go to https://launchpad.net/~git-core/+archive/candidate .
+
+╔═════════════════════════════════════════════════════════╗
+║ NOTE ABOUT THE “WEAK ALGORITHM” WARNING IN UBUNTU 24.04 ║
+╚═════════════════════════════════════════════════════════╝
+For details about the warning “W: https://ppa.launchpadcontent.net/git-core/ppa/ubuntu/dists/noble/InRelease: Signature by key E1DD270288B4E6030699E45FA1715D88E1DF1F24 uses weak algorithm (rsa1024)”, see:
+
+https://discourse.ubuntu.com/t/new-requirements-for-apt-repository-signing-in-24-04/42854
+https://bugs.launchpad.net/ubuntu/+source/software-properties/+bug/2065932
+
+There’s nothing that PPA owners can do about this for now, as the key is fully controlled internally by Launchpad.
+More info: https://launchpad.net/~git-core/+archive/ubuntu/ppa
+Adding repository.
+Press [ENTER] to continue or Ctrl-c to cancel.
+Hit:1 http://ap-southeast-2.ec2.archive.ubuntu.com/ubuntu noble InRelease
+Get:2 http://ap-southeast-2.ec2.archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+Get:3 http://ap-southeast-2.ec2.archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+Get:4 http://ap-southeast-2.ec2.archive.ubuntu.com/ubuntu noble/universe amd64 Packages [15.0 MB]
+Get:5 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+Get:6 http://ap-southeast-2.ec2.archive.ubuntu.com/ubuntu noble/universe Translation-en [5982 kB]
+Get:7 http://ap-southeast-2.ec2.archive.ubuntu.com/ubuntu noble/universe amd64 Components [3871 kB]
+Get:8 http://ap-southeast-2.ec2.archive.ubuntu.com/ubuntu noble/universe amd64 c-n-f Metadata [301 kB]
+Get:9 http://ap-southeast-2.ec2.archive.ubuntu.com/ubuntu noble/multiverse amd64 Packages [269 kB]
+Get:10 http://ap-southeast-2.ec2.archive.ubuntu.com/ubuntu noble/multiverse Translation-en [118 kB]
+Get:11 http://ap-southeast-2.ec2.archive.ubuntu.com/ubuntu noble/multiverse amd64 Components [35.0 kB]
+Get:12 http://ap-southeast-2.ec2.archive.ubuntu.com/ubuntu noble/multiverse amd64 c-n-f Metadata [8328 B]
+Get:13 http://ap-southeast-2.ec2.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [246 kB]
+Get:14 http://ap-southeast-2.ec2.archive.ubuntu.com/ubuntu noble-updates/main Translation-en [64.8 kB]
+Get:15 http://ap-southeast-2.ec2.archive.ubuntu.com/ubuntu noble-updates/main amd64 c-n-f Metadata [3884 B]
+Get:16 http://ap-southeast-2.ec2.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [147 kB]
+Get:17 http://ap-southeast-2.ec2.archive.ubuntu.com/ubuntu noble-updates/universe Translation-en [55.0 kB]
+Get:18 http://ap-southeast-2.ec2.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Components [45.0 kB]
+Get:19 http://ap-southeast-2.ec2.archive.ubuntu.com/ubuntu noble-updates/universe amd64 c-n-f Metadata [4908 B]
+Get:20 http://ap-southeast-2.ec2.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [165 kB]
+Get:21 http://ap-southeast-2.ec2.archive.ubuntu.com/ubuntu noble-updates/restricted Translation-en [31.5 kB]
+Get:22 http://ap-southeast-2.ec2.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 c-n-f Metadata [416 B]
+Get:23 http://ap-southeast-2.ec2.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Packages [14.1 kB]
+Get:24 http://ap-southeast-2.ec2.archive.ubuntu.com/ubuntu noble-updates/multiverse Translation-en [3608 B]
+Get:25 http://ap-southeast-2.ec2.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Components [212 B]
+Get:26 http://ap-southeast-2.ec2.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 c-n-f Metadata [532 B]
+Get:27 http://ap-southeast-2.ec2.archive.ubuntu.com/ubuntu noble-backports/main amd64 Components [208 B]
+Get:28 http://ap-southeast-2.ec2.archive.ubuntu.com/ubuntu noble-backports/main amd64 c-n-f Metadata [112 B]
+Get:29 http://ap-southeast-2.ec2.archive.ubuntu.com/ubuntu noble-backports/universe amd64 Packages [8696 B]
+Get:30 http://ap-southeast-2.ec2.archive.ubuntu.com/ubuntu noble-backports/universe Translation-en [10.0 kB]
+Get:31 http://ap-southeast-2.ec2.archive.ubuntu.com/ubuntu noble-backports/universe amd64 Components [17.6 kB]
+Get:32 http://ap-southeast-2.ec2.archive.ubuntu.com/ubuntu noble-backports/universe amd64 c-n-f Metadata [988 B]
+Get:33 http://ap-southeast-2.ec2.archive.ubuntu.com/ubuntu noble-backports/restricted amd64 Components [216 B]
+Get:34 http://ap-southeast-2.ec2.archive.ubuntu.com/ubuntu noble-backports/restricted amd64 c-n-f Metadata [116 B]
+Get:35 http://ap-southeast-2.ec2.archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Components [212 B]
+Get:36 http://ap-southeast-2.ec2.archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 c-n-f Metadata [116 B]
+Get:37 https://ppa.launchpadcontent.net/git-core/ppa/ubuntu noble InRelease [24.3 kB]
+Get:38 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages [216 kB]
+Get:39 https://ppa.launchpadcontent.net/git-core/ppa/ubuntu noble/main amd64 Packages [2844 B]
+Get:40 http://security.ubuntu.com/ubuntu noble-security/main Translation-en [53.3 kB]
+Get:41 http://security.ubuntu.com/ubuntu noble-security/main amd64 c-n-f Metadata [2660 B]
+Get:42 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Packages [136 kB]
+Get:43 https://ppa.launchpadcontent.net/git-core/ppa/ubuntu noble/main Translation-en [2088 B]
+Get:44 http://security.ubuntu.com/ubuntu noble-security/universe Translation-en [57.4 kB]
+Get:45 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Components [8632 B]
+Get:46 http://security.ubuntu.com/ubuntu noble-security/universe amd64 c-n-f Metadata [2236 B]
+Get:47 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [165 kB]
+Get:48 http://security.ubuntu.com/ubuntu noble-security/restricted Translation-en [31.5 kB]
+Get:49 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 c-n-f Metadata [420 B]
+Get:50 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 Packages [10.6 kB]
+Get:51 http://security.ubuntu.com/ubuntu noble-security/multiverse Translation-en [2808 B]
+Get:52 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 Components [208 B]
+Get:53 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 c-n-f Metadata [344 B]
+Fetched 27.5 MB in 6s (4870 kB/s)
+Reading package lists... Done
+W: https://ppa.launchpadcontent.net/git-core/ppa/ubuntu/dists/noble/InRelease: Signature by key E1DD270288B4E6030699E45FA1715D88E1DF1F24 uses weak algorithm (rsa1024)
+ubuntu@ip-10-0-0-31:~$ sudo apt update
+Hit:1 http://ap-southeast-2.ec2.archive.ubuntu.com/ubuntu noble InRelease
+Hit:2 http://ap-southeast-2.ec2.archive.ubuntu.com/ubuntu noble-updates InRelease
+Hit:3 http://ap-southeast-2.ec2.archive.ubuntu.com/ubuntu noble-backports InRelease
+Hit:4 http://security.ubuntu.com/ubuntu noble-security InRelease
+Hit:5 https://ppa.launchpadcontent.net/git-core/ppa/ubuntu noble InRelease
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+12 packages can be upgraded. Run 'apt list --upgradable' to see them.
+W: https://ppa.launchpadcontent.net/git-core/ppa/ubuntu/dists/noble/InRelease: Signature by key E1DD270288B4E6030699E45FA1715D88E1DF1F24 uses weak algorithm (rsa1024)
+ubuntu@ip-10-0-0-31:~$ sudo apt install git
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  git-man
+Suggested packages:
+  git-daemon-run | git-daemon-sysvinit git-doc git-email git-gui gitk gitweb git-cvs git-mediawiki git-svn
+The following packages will be upgraded:
+  git git-man
+2 upgraded, 0 newly installed, 0 to remove and 10 not upgraded.
+Need to get 8833 kB of archives.
+After this operation, 11.3 MB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Get:1 https://ppa.launchpadcontent.net/git-core/ppa/ubuntu noble/main amd64 git amd64 1:2.45.2-0ppa1~ubuntu24.04.1 [6686 kB]
+Get:2 https://ppa.launchpadcontent.net/git-core/ppa/ubuntu noble/main amd64 git-man all 1:2.45.2-0ppa1~ubuntu24.04.1 [2147 kB]
+Fetched 8833 kB in 14s (620 kB/s)
+(Reading database ... 67739 files and directories currently installed.)
+Preparing to unpack .../git_1%3a2.45.2-0ppa1~ubuntu24.04.1_amd64.deb ...
+Unpacking git (1:2.45.2-0ppa1~ubuntu24.04.1) over (1:2.43.0-1ubuntu7.1) ...
+Preparing to unpack .../git-man_1%3a2.45.2-0ppa1~ubuntu24.04.1_all.deb ...
+Unpacking git-man (1:2.45.2-0ppa1~ubuntu24.04.1) over (1:2.43.0-1ubuntu7.1) ...
+Setting up git-man (1:2.45.2-0ppa1~ubuntu24.04.1) ...
+Setting up git (1:2.45.2-0ppa1~ubuntu24.04.1) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+Scanning processes...
+Scanning linux images...
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+ubuntu@ip-10-0-0-31:~$ git --version
+git version 2.45.2
+ubuntu@ip-10-0-0-31:~$ which git
+/usr/bin/git
+ubuntu@ip-10-0-0-31:~$ ls -ltrh /usr/bin/git
+-rwxr-xr-x 1 root root 4.1M May 31 18:30 /usr/bin/git
+ubuntu@ip-10-0-0-31:~$ ls -l/
+ls: invalid option -- '/'
+Try 'ls --help' for more information.
+ubuntu@ip-10-0-0-31:~$ ls -l
+total 0
+ubuntu@ip-10-0-0-31:~$ pwd
+/home/ubuntu
+ubuntu@ip-10-0-0-31:~$ mkdir project007/
+ubuntu@ip-10-0-0-31:~$ ls -l
+total 4
+drwxrwxr-x 2 ubuntu ubuntu 4096 Jul 11 15:25 project007
+ubuntu@ip-10-0-0-31:~$ cd project007
+ubuntu@ip-10-0-0-31:~/project007$ git init
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint:
+hint:   git config --global init.defaultBranch <name>
+hint:
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint:
+hint:   git branch -m <name>
+Initialized empty Git repository in /home/ubuntu/project007/.git/
+ubuntu@ip-10-0-0-31:~/project007$ ls -l
+total 0
+ubuntu@ip-10-0-0-31:~/project007$ ls -al
+total 12
+drwxrwxr-x 3 ubuntu ubuntu 4096 Jul 11 15:26 .
+drwxr-x--- 5 ubuntu ubuntu 4096 Jul 11 15:25 ..
+drwxrwxr-x 7 ubuntu ubuntu 4096 Jul 11 15:26 .git
+ubuntu@ip-10-0-0-31:~/project007$ ls -l .git/
+total 32
+-rw-rw-r-- 1 ubuntu ubuntu   23 Jul 11 15:26 HEAD
+drwxrwxr-x 2 ubuntu ubuntu 4096 Jul 11 15:26 branches
+-rw-rw-r-- 1 ubuntu ubuntu   92 Jul 11 15:26 config
+-rw-rw-r-- 1 ubuntu ubuntu   73 Jul 11 15:26 description
+drwxrwxr-x 2 ubuntu ubuntu 4096 Jul 11 15:26 hooks
+drwxrwxr-x 2 ubuntu ubuntu 4096 Jul 11 15:26 info
+drwxrwxr-x 4 ubuntu ubuntu 4096 Jul 11 15:26 objects
+drwxrwxr-x 4 ubuntu ubuntu 4096 Jul 11 15:26 refs
+ubuntu@ip-10-0-0-31:~/project007$ rm -rf .git/
+ubuntu@ip-10-0-0-31:~/project007$ ls -l .git/
+ls: cannot access '.git/': No such file or directory
+ubuntu@ip-10-0-0-31:~/project007$ git init
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint:
+hint:   git config --global init.defaultBranch <name>
+hint:
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint:
+hint:   git branch -m <name>
+Initialized empty Git repository in /home/ubuntu/project007/.git/
+ubuntu@ip-10-0-0-31:~/project007$ ls -al
+total 12
+drwxrwxr-x 3 ubuntu ubuntu 4096 Jul 11 15:29 .
+drwxr-x--- 5 ubuntu ubuntu 4096 Jul 11 15:25 ..
+drwxrwxr-x 7 ubuntu ubuntu 4096 Jul 11 15:29 .git
+ubuntu@ip-10-0-0-31:~/project007$ git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+ubuntu@ip-10-0-0-31:~/project007$ touch 1.java 2.txt 3.c
+ubuntu@ip-10-0-0-31:~/project007$ ls -al
+total 12
+drwxrwxr-x 3 ubuntu ubuntu 4096 Jul 11 15:31 .
+drwxr-x--- 5 ubuntu ubuntu 4096 Jul 11 15:25 ..
+drwxrwxr-x 7 ubuntu ubuntu 4096 Jul 11 15:30 .git
+-rw-rw-r-- 1 ubuntu ubuntu    0 Jul 11 15:31 1.java
+-rw-rw-r-- 1 ubuntu ubuntu    0 Jul 11 15:31 2.txt
+-rw-rw-r-- 1 ubuntu ubuntu    0 Jul 11 15:31 3.c
+ubuntu@ip-10-0-0-31:~/project007$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        1.java
+        2.txt
+        3.c
+
+nothing added to commit but untracked files present (use "git add" to track)
+ubuntu@ip-10-0-0-31:~/project007$ git add .
+ubuntu@ip-10-0-0-31:~/project007$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   1.java
+        new file:   2.txt
+        new file:   3.c
+
+ubuntu@ip-10-0-0-31:~/project007$ vi 1.java
+ubuntu@ip-10-0-0-31:~/project007$ ubuntu@ip-10-0-0-31:~/project007$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   1.java
+        new file:   2.txt
+        new file:   3.c
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   1.java
+
+ubuntu@ip-10-0-0-31:~/project007$ git commit -m "1st commit"
+Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'ubuntu@ip-10-0-0-31.(none)')
+ubuntu@ip-10-0-0-31:~/project007$  git config --global user.email "abc@gmail.com"
+ubuntu@ip-10-0-0-31:~/project007$ git config --global user.name "Deepak"
+ubuntu@ip-10-0-0-31:~/project007$ git commit -m "1st commit"
+[master (root-commit) a72b129] 1st commit
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 1.java
+ create mode 100644 2.txt
+ create mode 100644 3.c
+ubuntu@ip-10-0-0-31:~/project007$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   1.java
+
+no changes added to commit (use "git add" and/or "git commit -a")
+ubuntu@ip-10-0-0-31:~/project007$ git show
+commit a72b1299c550e135012e57fc2abe0af5ede19e64 (HEAD -> master)
+Author: Deepak <abc@gmail.com>
+Date:   Thu Jul 11 15:40:07 2024 +0000
+
+    1st commit
+
+diff --git a/1.java b/1.java
+new file mode 100644
+index 0000000..e69de29
+diff --git a/2.txt b/2.txt
+new file mode 100644
+index 0000000..e69de29
+diff --git a/3.c b/3.c
+new file mode 100644
+index 0000000..e69de29
+ubuntu@ip-10-0-0-31:~/project007$ git log
+commit a72b1299c550e135012e57fc2abe0af5ede19e64 (HEAD -> master)
+Author: Deepak <abc@gmail.com>
+Date:   Thu Jul 11 15:40:07 2024 +0000
+
+    1st commit
+ubuntu@ip-10-0-0-31:~/project007$ git show a72b1299c550e135012e57fc2abe0af5ede19e64
+commit a72b1299c550e135012e57fc2abe0af5ede19e64 (HEAD -> master)
+Author: Deepak <abc@gmail.com>
+Date:   Thu Jul 11 15:40:07 2024 +0000
+
+    1st commit
+
+diff --git a/1.java b/1.java
+new file mode 100644
+index 0000000..e69de29
+diff --git a/2.txt b/2.txt
+new file mode 100644
+index 0000000..e69de29
+diff --git a/3.c b/3.c
+new file mode 100644
+index 0000000..e69de29
+ubuntu@ip-10-0-0-31:~/project007$ git add .
+ubuntu@ip-10-0-0-31:~/project007$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   1.java
+
+ubuntu@ip-10-0-0-31:~/project007$ vi 2.txt
+ubuntu@ip-10-0-0-31:~/project007$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   1.java
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   2.txt
+
+ubuntu@ip-10-0-0-31:~/project007$ git commit -m "2nd commit"
+[master 5c3a820] 2nd commit
+ 1 file changed, 1 insertion(+)
+ubuntu@ip-10-0-0-31:~/project007$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   2.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+ubuntu@ip-10-0-0-31:~/project007$ git log
+commit 5c3a8207e3488add7417013071c03a99133ba7a1 (HEAD -> master)
+Author: Deepak <abc@gmail.com>
+Date:   Thu Jul 11 15:44:29 2024 +0000
+
+    2nd commit
+
+commit a72b1299c550e135012e57fc2abe0af5ede19e64
+Author: Deepak <abc@gmail.com>
+Date:   Thu Jul 11 15:40:07 2024 +0000
+
+    1st commit
+ubuntu@ip-10-0-0-31:~/project007$ git show
+commit 5c3a8207e3488add7417013071c03a99133ba7a1 (HEAD -> master)
+Author: Deepak <abc@gmail.com>
+Date:   Thu Jul 11 15:44:29 2024 +0000
+
+    2nd commit
+
+diff --git a/1.java b/1.java
+index e69de29..c2f04e8 100644
+--- a/1.java
++++ b/1.java
+@@ -0,0 +1 @@
++hi, how are you !
+ubuntu@ip-10-0-0-31:~/project007$ git add .
+ubuntu@ip-10-0-0-31:~/project007$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   2.txt
+
+ubuntu@ip-10-0-0-31:~/project007$ vi 3.c
+ 1L, 23B written
+ubuntu@ip-10-0-0-31:~/project007$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   2.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   3.c
+
+ubuntu@ip-10-0-0-31:~/project007$ git commit -m "3rd commit"
+[master f526690] 3rd commit
+ 1 file changed, 1 insertion(+)
+ubuntu@ip-10-0-0-31:~/project007$ git show
+commit f5266901faa9fd8abe244b8a8108a671f00c6707 (HEAD -> master)
+Author: Deepak <abc@gmail.com>
+Date:   Thu Jul 11 15:47:15 2024 +0000
+
+    3rd commit
+
+diff --git a/2.txt b/2.txt
+index e69de29..d0ee17b 100644
+--- a/2.txt
++++ b/2.txt
+@@ -0,0 +1 @@
++I am fine, how are you !
+ubuntu@ip-10-0-0-31:~/project007$ git log
+commit f5266901faa9fd8abe244b8a8108a671f00c6707 (HEAD -> master)
+Author: Deepak <abc@gmail.com>
+Date:   Thu Jul 11 15:47:15 2024 +0000
+
+    3rd commit
+
+commit 5c3a8207e3488add7417013071c03a99133ba7a1
+Author: Deepak <abc@gmail.com>
+Date:   Thu Jul 11 15:44:29 2024 +0000
+
+    2nd commit
+
+commit a72b1299c550e135012e57fc2abe0af5ede19e64
+Author: Deepak <abc@gmail.com>
+Date:   Thu Jul 11 15:40:07 2024 +0000
+
+    1st commit
+ubuntu@ip-10-0-0-31:~/project007$ git add .
+ubuntu@ip-10-0-0-31:~/project007$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   3.c
+
+ubuntu@ip-10-0-0-31:~/project007$ ls -l
+total 12
+-rw-rw-r-- 1 ubuntu ubuntu 18 Jul 11 15:37 1.java
+-rw-rw-r-- 1 ubuntu ubuntu 25 Jul 11 15:43 2.txt
+-rw-rw-r-- 1 ubuntu ubuntu 23 Jul 11 15:46 3.c
+ubuntu@ip-10-0-0-31:~/project007$ touch a.log
+ubuntu@ip-10-0-0-31:~/project007$ ls -l
+total 12
+-rw-rw-r-- 1 ubuntu ubuntu 18 Jul 11 15:37 1.java
+-rw-rw-r-- 1 ubuntu ubuntu 25 Jul 11 15:43 2.txt
+-rw-rw-r-- 1 ubuntu ubuntu 23 Jul 11 15:46 3.c
+-rw-rw-r-- 1 ubuntu ubuntu  0 Jul 11 15:51 a.log
+ubuntu@ip-10-0-0-31:~/project007$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   3.c
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        a.log
+
+ubuntu@ip-10-0-0-31:~/project007$ git add a.log
+ubuntu@ip-10-0-0-31:~/project007$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   3.c
+        new file:   a.log
+
+ubuntu@ip-10-0-0-31:~/project007$ git restore --statged a.log
+error: unknown option `statged'
+usage: git restore [<options>] [--source=<branch>] <file>...
+
+    -s, --[no-]source <tree-ish>
+                          which tree-ish to checkout from
+    -S, --[no-]staged     restore the index
+    -W, --[no-]worktree   restore the working tree (default)
+    --[no-]ignore-unmerged
+                          ignore unmerged entries
+    --[no-]overlay        use overlay mode
+    -q, --[no-]quiet      suppress progress reporting
+    --[no-]recurse-submodules[=<checkout>]
+                          control recursive updating of submodules
+    --[no-]progress       force progress reporting
+    -m, --[no-]merge      perform a 3-way merge with the new branch
+    --[no-]conflict <style>
+                          conflict style (merge, diff3, or zdiff3)
+    -2, --ours            checkout our version for unmerged files
+    -3, --theirs          checkout their version for unmerged files
+    -p, --[no-]patch      select hunks interactively
+    --[no-]ignore-skip-worktree-bits
+                          do not limit pathspecs to sparse entries only
+    --[no-]pathspec-from-file <file>
+                          read pathspec from file
+    --[no-]pathspec-file-nul
+                          with --pathspec-from-file, pathspec elements are separated with NUL character
+
+ubuntu@ip-10-0-0-31:~/project007$ git restore --staged a.log
+ubuntu@ip-10-0-0-31:~/project007$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   3.c
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        a.log
+
+ubuntu@ip-10-0-0-31:~/project007$ git log --author Deepak
+commit f5266901faa9fd8abe244b8a8108a671f00c6707 (HEAD -> master)
+Author: Deepak <abc@gmail.com>
+Date:   Thu Jul 11 15:47:15 2024 +0000
+
+    3rd commit
+
+commit 5c3a8207e3488add7417013071c03a99133ba7a1
+Author: Deepak <abc@gmail.com>
+Date:   Thu Jul 11 15:44:29 2024 +0000
+
+    2nd commit
+
+commit a72b1299c550e135012e57fc2abe0af5ede19e64
+Author: Deepak <abc@gmail.com>
+Date:   Thu Jul 11 15:40:07 2024 +0000
+
+    1st commit
+ubuntu@ip-10-0-0-31:~/project007$ git log online
+fatal: ambiguous argument 'online': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+ubuntu@ip-10-0-0-31:~/project007$ git log --online
+fatal: unrecognized argument: --online
+ubuntu@ip-10-0-0-31:~/project007$ git log --oneline
+f526690 (HEAD -> master) 3rd commit
+5c3a820 2nd commit
+a72b129 1st commit
+ubuntu@ip-10-0-0-31:~/project007$ git remote -v
+ubuntu@ip-10-0-0-31:~/project007$ git remote add origin https://github.com/Deepak-Kumar98/project008.git
+ubuntu@ip-10-0-0-31:~/project007$ git branch -M main
+ubuntu@ip-10-0-0-31:~/project007$ git branch
+* main
+ubuntu@ip-10-0-0-31:~/project007$ git remote -v
+origin  https://github.com/Deepak-Kumar98/project008.git (fetch)
+origin  https://github.com/Deepak-Kumar98/project008.git (push)
+ubuntu@ip-10-0-0-31:~/project007$ ls -l
+total 12
+-rw-rw-r-- 1 ubuntu ubuntu 18 Jul 11 15:37 1.java
+-rw-rw-r-- 1 ubuntu ubuntu 25 Jul 11 15:43 2.txt
+-rw-rw-r-- 1 ubuntu ubuntu 23 Jul 11 15:46 3.c
+-rw-rw-r-- 1 ubuntu ubuntu  0 Jul 11 15:51 a.log
+ubuntu@ip-10-0-0-31:~/project007$ git push origin main
+Username for 'https://github.com': Deepak-Kumar98
+Password for 'https://Deepak-Kumar98@github.com':
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (9/9), 745 bytes | 372.00 KiB/s, done.
+Total 9 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/Deepak-Kumar98/project008.git
+ * [new branch]      main -> main
+ubuntu@ip-10-0-0-31:~/project007$ git remote -v
+origin  https://github.com/Deepak-Kumar98/project008.git (fetch)
+origin  https://github.com/Deepak-Kumar98/project008.git (push)
+ubuntu@ip-10-0-0-31:~/project007$ ls -l
+total 12
+-rw-rw-r-- 1 ubuntu ubuntu 18 Jul 11 15:37 1.java
+-rw-rw-r-- 1 ubuntu ubuntu 25 Jul 11 15:43 2.txt
+-rw-rw-r-- 1 ubuntu ubuntu 23 Jul 11 15:46 3.c
+-rw-rw-r-- 1 ubuntu ubuntu  0 Jul 11 15:51 a.log
+ubuntu@ip-10-0-0-31:~/project007$ git log --oneline
+f526690 (HEAD -> main, origin/main) 3rd commit
+5c3a820 2nd commit
+a72b129 1st commit
+ubuntu@ip-10-0-0-31:~/project007$ git pull origin main
+From https://github.com/Deepak-Kumar98/project008
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+ubuntu@ip-10-0-0-31:~/project007$ git add .
+ubuntu@ip-10-0-0-31:~/project007$ git status
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   3.c
+        new file:   a.log
+
+ubuntu@ip-10-0-0-31:~/project007$ vi a.log
+ 1L, 17B written
+ubuntu@ip-10-0-0-31:~/project007$ git status
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   3.c
+        new file:   a.log
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   a.log
+
+ubuntu@ip-10-0-0-31:~/project007$ git log
+commit f5266901faa9fd8abe244b8a8108a671f00c6707 (HEAD -> main, origin/main)
+Author: Deepak <abc@gmail.com>
+Date:   Thu Jul 11 15:47:15 2024 +0000
+
+    3rd commit
+
+commit 5c3a8207e3488add7417013071c03a99133ba7a1
+Author: Deepak <abc@gmail.com>
+Date:   Thu Jul 11 15:44:29 2024 +0000
+
+    2nd commit
+
+commit a72b1299c550e135012e57fc2abe0af5ede19e64
+Author: Deepak <abc@gmail.com>
+Date:   Thu Jul 11 15:40:07 2024 +0000
+
+    1st commit
+ubuntu@ip-10-0-0-31:~/project007$ git commit -m "4ht commit"
+[main b7571c9] 4ht commit
+ 2 files changed, 1 insertion(+)
+ create mode 100644 a.log
+ubuntu@ip-10-0-0-31:~/project007$ git status
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   a.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+ubuntu@ip-10-0-0-31:~/project007$ git add .
+ubuntu@ip-10-0-0-31:~/project007$ git status
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   a.log
+
+ubuntu@ip-10-0-0-31:~/project007$ ls -l
+total 16
+-rw-rw-r-- 1 ubuntu ubuntu 18 Jul 11 15:37 1.java
+-rw-rw-r-- 1 ubuntu ubuntu 25 Jul 11 15:43 2.txt
+-rw-rw-r-- 1 ubuntu ubuntu 23 Jul 11 15:46 3.c
+-rw-rw-r-- 1 ubuntu ubuntu 17 Jul 11 17:46 a.log
+ubuntu@ip-10-0-0-31:~/project007$ git log
+commit b7571c9692f7215ee7675e7a69aa4f2cd927df63 (HEAD -> main)
+Author: Deepak <abc@gmail.com>
+Date:   Thu Jul 11 17:47:00 2024 +0000
+
+    4ht commit
+
+commit f5266901faa9fd8abe244b8a8108a671f00c6707 (origin/main)
+Author: Deepak <abc@gmail.com>
+Date:   Thu Jul 11 15:47:15 2024 +0000
+
+    3rd commit
+
+commit 5c3a8207e3488add7417013071c03a99133ba7a1
+Author: Deepak <abc@gmail.com>
+Date:   Thu Jul 11 15:44:29 2024 +0000
+
+    2nd commit
+
+commit a72b1299c550e135012e57fc2abe0af5ede19e64
+Author: Deepak <abc@gmail.com>
+Date:   Thu Jul 11 15:40:07 2024 +0000
+
+    1st commit
+ubuntu@ip-10-0-0-31:~/project007$ git show
+commit b7571c9692f7215ee7675e7a69aa4f2cd927df63 (HEAD -> main)
+Author: Deepak <abc@gmail.com>
+Date:   Thu Jul 11 17:47:00 2024 +0000
+
+    4ht commit
+
+diff --git a/3.c b/3.c
+index e69de29..017f957 100644
+--- a/3.c
++++ b/3.c
+@@ -0,0 +1 @@
++how are doing friend !
+diff --git a/a.log b/a.log
+new file mode 100644
+index 0000000..e69de29
+ubuntu@ip-10-0-0-31:~/project007$ git log --oneline
+b7571c9 (HEAD -> main) 4ht commit
+f526690 (origin/main) 3rd commit
+5c3a820 2nd commit
+a72b129 1st commit
+ubuntu@ip-10-0-0-31:~/project007$ git push origin main
+Username for 'https://github.com': Deepak-Kumar98
+Password for 'https://Deepak-Kumar98@github.com':
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 336 bytes | 336.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/Deepak-Kumar98/project008.git
+   f526690..b7571c9  main -> main
+ubuntu@ip-10-0-0-31:~/project007$ ls -l
+total 16
+-rw-rw-r-- 1 ubuntu ubuntu 18 Jul 11 15:37 1.java
+-rw-rw-r-- 1 ubuntu ubuntu 25 Jul 11 15:43 2.txt
+-rw-rw-r-- 1 ubuntu ubuntu 23 Jul 11 15:46 3.c
+-rw-rw-r-- 1 ubuntu ubuntu 17 Jul 11 17:46 a.log
+ubuntu@ip-10-0-0-31:~/project007$ git pull origin main
+From https://github.com/Deepak-Kumar98/project008
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+ubuntu@ip-10-0-0-31:~/project007$ ls -l
+total 16
+-rw-rw-r-- 1 ubuntu ubuntu 18 Jul 11 15:37 1.java
+-rw-rw-r-- 1 ubuntu ubuntu 25 Jul 11 15:43 2.txt
+-rw-rw-r-- 1 ubuntu ubuntu 23 Jul 11 15:46 3.c
+-rw-rw-r-- 1 ubuntu ubuntu 17 Jul 11 17:46 a.log
+ubuntu@ip-10-0-0-31:~/project007$ git log --oneline
+b7571c9 (HEAD -> main, origin/main) 4ht commit
+f526690 3rd commit
+5c3a820 2nd commit
+a72b129 1st commit
+ubuntu@ip-10-0-0-31:~/project007$ git pull origin main
+From https://github.com/Deepak-Kumar98/project008
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+ubuntu@ip-10-0-0-31:~/project007$ git pull
+There is no tracking information for the current branch.
+Please specify which branch you want to merge with.
+See git-pull(1) for details.
+
+    git pull <remote> <branch>
+
+If you wish to set tracking information for this branch you can do so with:
+
+    git branch --set-upstream-to=origin/<branch> main
+
+ubuntu@ip-10-0-0-31:~/project007$ git pull origin
+You asked to pull from the remote 'origin', but did not specify
+a branch. Because this is not the default configured remote
+for your current branch, you must specify a branch on the command line.
+ubuntu@ip-10-0-0-31:~/project007$ git remote -v
+origin  https://github.com/Deepak-Kumar98/project008.git (fetch)
+origin  https://github.com/Deepak-Kumar98/project008.git (push)
+ubuntu@ip-10-0-0-31:~/project007$ cd ..
+ubuntu@ip-10-0-0-31:~$ pwd
+/home/ubuntu
+ubuntu@ip-10-0-0-31:~$ git pull
+fatal: not a git repository (or any of the parent directories): .git
+ubuntu@ip-10-0-0-31:~$ git project007/
+git: 'project007/' is not a git command. See 'git --help'.
+ubuntu@ip-10-0-0-31:~$ cd project007/
+ubuntu@ip-10-0-0-31:~/project007$ cd ..
+ubuntu@ip-10-0-0-31:~$ git clone https://github.com/lerndevops/kubernetes1.git
+Cloning into 'kubernetes1'...
+remote: Enumerating objects: 1410494, done.
+remote: Counting objects: 100% (313/313), done.
+remote: Compressing objects: 100% (209/209), done.
+remote: Total 1410494 (delta 100), reused 247 (delta 79), pack-reused 1410181
+Receiving objects: 100% (1410494/1410494), 970.02 MiB | 14.75 MiB/s, done.
+Resolving deltas: 100% (1031232/1031232), done.
+Updating files: 100% (24451/24451), done.
+ubuntu@ip-10-0-0-31:~$ cd project007/
+ubuntu@ip-10-0-0-31:~/project007$ git branch
+* main
+ubuntu@ip-10-0-0-31:~/project007$ git pull origin
+You asked to pull from the remote 'origin', but did not specify
+a branch. Because this is not the default configured remote
+for your current branch, you must specify a branch on the command line.
+ubuntu@ip-10-0-0-31:~/project007$ git branch
+* main
+ubuntu@ip-10-0-0-31:~/project007$ git switch featx # git checkout featx
+fatal: invalid reference: featx
+ubuntu@ip-10-0-0-31:~/project007$ git pull origin main
+From https://github.com/Deepak-Kumar98/project008
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+ubuntu@ip-10-0-0-31:~/project007$ git branch -a
+* main
+  remotes/origin/main
+ubuntu@ip-10-0-0-31:~/project007$ git switch main
+M       a.log
+Already on 'main'
+ubuntu@ip-10-0-0-31:~/project007$ git pull origin main
+From https://github.com/Deepak-Kumar98/project008
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+ubuntu@ip-10-0-0-31:~/project007$ git branch
+* main
+ubuntu@ip-10-0-0-31:~/project007$ git branch testbranch
+ubuntu@ip-10-0-0-31:~/project007$ git branch
+* main
+  testbranch
+ubuntu@ip-10-0-0-31:~/project007$ git switch featx
+fatal: invalid reference: featx
+ubuntu@ip-10-0-0-31:~/project007$ git switch testbranch
+M       a.log
+Switched to branch 'testbranch'
+ubuntu@ip-10-0-0-31:~/project007$ ls -l
+total 16
+-rw-rw-r-- 1 ubuntu ubuntu 18 Jul 11 15:37 1.java
+-rw-rw-r-- 1 ubuntu ubuntu 25 Jul 11 15:43 2.txt
+-rw-rw-r-- 1 ubuntu ubuntu 23 Jul 11 15:46 3.c
+-rw-rw-r-- 1 ubuntu ubuntu 17 Jul 11 17:46 a.log
+ubuntu@ip-10-0-0-31:~/project007$ git switch main
+M       a.log
+Switched to branch 'main'
+ubuntu@ip-10-0-0-31:~/project007$ git branch
+* main
+  testbranch
+ubuntu@ip-10-0-0-31:~/project007$
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+ubuntu@ip-10-0-0-31:~/project007$ history
+    1  hostnamectl
+    2  add-apt-repository ppa:git-core/ppa
+    3  sudo add-apt-repository ppa:git-core/ppa
+    4  sudo apt update
+    5  sudo apt install git
+    6  git --version
+    7  which git
+    8  ls -ltrh /usr/bin/git
+    9  ls -l/
+   10  ls -l
+   11  pwd
+   12  mkdir project007/
+   13  ls -l
+   14  cd project007
+   15  git init
+   16  ls -l
+   17  ls -al
+   18  ls -l .git/
+   19  rm -rf .git/
+   20  ls -l .git/
+   21  git init
+   22  ls -al
+   23  git status
+   24  touch 1.java 2.txt 3.c
+   25  ls -al
+   26  git status
+   27  git add .
+   28  git status
+   29  vi 1.java
+   30  git status
+   31  git commit -m "1st commit"
+   32  git config --global user.name "Deepak"
+   33  git commit -m "1st commit"
+   34  git status
+   35  git show
+   36  git log
+   37  git show a72b1299c550e135012e57fc2abe0af5ede19e64
+   38  git add .
+   39  git status
+   40  vi 2.txt
+   41  git status
+   42  git commit -m "2nd commit"
+   43  git status
+   44  git log
+   45  git show
+   46  git add .
+   47  git status
+   48  vi 3.c
+   49  git status
+   50  git commit -m "3rd commit"
+   51  git show
+   52  git log
+   53  git add .
+   54  git status
+   55  ls -l
+   56  touch a.log
+   57  ls -l
+   58  git status
+   59  git add a.log
+   60  git status
+   61  git restore --statged a.log
+   62  git restore --staged a.log
+   63  git status
+   64  git log --author Deepak
+   65  git log online
+   66  git log --online
+   67  git log --oneline
+   68  git remote -v
+   69  git remote add origin https://github.com/Deepak-Kumar98/project008.git
+   70  git branch -M main
+   71  git branch
+   72  git remote -v
+   73  ls -l
+   74  git push origin main
+   75  git remote -v
+   76  ls -l
+   77  git log --oneline
+   78  git pull origin main
+   79  git add .
+   80  git status
+   81  vi a.log
+   82  git status
+   83  git log
+   84  git commit -m "4ht commit"
+   85  git status
+   86  git add .
+   87  git status
+   88  ls -l
+   89  git log
+   90  git show
+   91  git log --oneline
+   92  git push origin main
+   93  ls -l
+   94  git pull origin main
+   95  ls -l
+   96  git log --oneline
+   97  git pull origin main
+   98  git pull
+   99  git pull origin
+  100  git remote -v
+  101  cd ..
+  102  pwd
+  103  git pull
+  104  git project007/
+  105  cd project007/
+  106  cd ..
+  107  git clone https://github.com/lerndevops/kubernetes1.git
+  108  cd project007/
+  109  git branch
+  110  git pull origin
+  111  git branch
+  112  git switch featx # git checkout featx
+  113  git pull origin main
+  114  git branch -a
+  115  git switch main
+  116  git pull origin main
+  117  git branch
+  118  git branch testbranch
+  119  git branch
+  120  git switch featx
+  121  git switch testbranch
+  122  ls -l
+  123  git switch main
+  124  git branch
+  125  history
